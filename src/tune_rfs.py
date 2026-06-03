@@ -16,7 +16,7 @@ from preprocessing import (
 
 TRAIN_PATH = "data/TrainDataset2025.xls"
 MODEL_PATH = "models/best_rfs_model.joblib"
-RESULTS_PATH = "outputs/rfs_tuning_results.csv"
+RESULTS_PATH = "outputs/rfs_tuning.csv"
 
 def main():
     train_df = load_data(TRAIN_PATH)

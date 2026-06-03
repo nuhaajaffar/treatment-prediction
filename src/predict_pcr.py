@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 TEST_PATH = BASE_DIR / "data" / "FinalTestDataset2025.xls"
 MODEL_PATH = BASE_DIR / "models" / "best_pcr_model.joblib"
-OUTPUT_PATH = BASE_DIR / "outputs" / "PCRPrediction.csv"
+OUTPUT_PATH = BASE_DIR / "outputs" / "pcr_prediction.csv"
 
 def main():
     test_df = pd.read_excel(TEST_PATH)

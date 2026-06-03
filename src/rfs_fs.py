@@ -16,7 +16,7 @@ from preprocessing import (
 )
 
 TRAIN_PATH = "data/TrainDataset2025.xls"
-RESULTS_PATH = "outputs/rfs_feature_selection_comparison.csv"
+RESULTS_PATH = "outputs/rfs_fs.csv"
 
 def build_models():
     return {

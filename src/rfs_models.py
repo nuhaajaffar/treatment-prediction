@@ -10,7 +10,7 @@ from pathlib import Path
 from preprocessing import load_data, prepare_rfs_data, build_preprocessing_pipeline
 
 TRAIN_PATH = "data/TrainDataset2025.xls"
-RESULTS_PATH = "outputs/rfs_model_comparison.csv"
+RESULTS_PATH = "outputs/rfs_models.csv"
 
 def build_models():
     return {
