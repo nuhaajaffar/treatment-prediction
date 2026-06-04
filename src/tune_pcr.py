@@ -34,19 +34,19 @@ def main():
 
     param_grid = [
         {
-            "feature_selection__k": [20, 30, 40, 60],
+            "feature_selection__k": [15, 20, 25, 30, 40, 60],
             "classifier": [
                 LogisticRegression(
                     class_weight = "balanced",
-                    max_iter = 3000,
+                    max_iter = 5000,
                     random_state = 42,
                     solver = "liblinear"
                 )
             ],
-            "classifier__C": [0.01, 0.1, 1, 10]
+            "classifier__C": [0.01, 0.03, 0.1, 0.3, 1]
         },
         {
-            "feature_selection__k": [20, 30, 40, 60],
+            "feature_selection__k": [15, 20, 25, 30, 40, 60],
             "classifier": [
                 SVC(
                     class_weight = "balanced",
@@ -54,8 +54,8 @@ def main():
                     random_state = 42
                 )
             ],
-            "classifier__C": [0.1, 1, 10],
-            "classifier__gamma": ["scale", 0.01, 0.001]
+            "classifier__C": [0.1, 0.3, 1, 3, 10],
+            "classifier__gamma": [0.03, 0.01, 0.003, 0.001, 0.0003]
         }
     ]
 

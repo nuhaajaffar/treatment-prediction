@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier, ExtraTreesClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import balanced_accuracy_score, classification_report, confusion_matrix
 from sklearn.model_selection import StratifiedKFold, cross_val_score, train_test_split
@@ -13,10 +13,31 @@ RESULTS_PATH = "outputs/pcr_models.csv"
 
 def build_models():
     return {
-        "Logistic Regression": LogisticRegression(class_weight = "balanced", max_iter = 1000, random_state = 42),
-        "Random Forest": RandomForestClassifier(class_weight = "balanced", n_estimators = 200, random_state = 42),
-        "Gradient Boosting": GradientBoostingClassifier(random_state = 42),
-        "SVM": SVC(class_weight = "balanced", kernel = "rbf", random_state = 42)
+        "Logistic Regression": LogisticRegression(
+            class_weight = "balanced",
+            max_iter = 1000,
+            random_state = 42
+        ),
+        "Random Forest": RandomForestClassifier(
+            class_weight = "balanced",
+            n_estimators = 200,
+            random_state = 42
+        ),
+        "Gradient Boosting": GradientBoostingClassifier(
+            random_state = 42
+        ),
+        "SVM": SVC(
+            class_weight = "balanced",
+            kernel = "rbf",
+            random_state = 42
+        ),
+        "Extra Trees": ExtraTreesClassifier(
+            class_weight = "balanced",
+            n_estimators = 300,
+            max_depth = 3,
+            min_samples_leaf = 5,
+            random_state = 42
+        )
     }
 
 def main():
