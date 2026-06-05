@@ -31,23 +31,14 @@ The main goal is not to claim clinical readiness, but to build a structured and 
 
 The dataset contains:
 
-* 11 clinical features
-* 107 MRI-derived radiomics features
-* pCR outcome label for classification
-* RFS outcome value for regression
+- 11 clinical features
+- 107 MRI-derived radiomics features
+- pCR outcome label for classification
+- RFS outcome value for regression
 
 Missing values are encoded as `999` and are replaced with missing values during preprocessing.
 
-The dataset files are not included in this repository because they may be subject to access restrictions. To run the project locally, place the required Excel files inside the `data/` folder.
-
-Expected local files:
-
-```text
-data/
-├── TrainDataset2025.xls
-├── TestDatasetExample.xls
-└── FinalTestDataset2025.xls
-```
+The dataset files are not included in this repository because they may be subject to access restrictions. See the Data Availability section for the required file structure.
 
 ## Methodology
 
@@ -137,7 +128,7 @@ CV MAE: 20.6832
 | Random Forest       |               0.5693 |
 | Gradient Boosting   |               0.5501 |
 
-After feature selection and hyperparameter tuning, the final pCR model achieved:
+After feature selection and hyperparameter tuning, the final reproducible pCR pipeline achieved:
 
 | Final pCR Model         | CV Balanced Accuracy |
 | ----------------------- | -------------------: |
@@ -150,6 +141,12 @@ After feature selection and hyperparameter tuning, the final pCR model achieved:
 | Random Forest Regressor + Feature Selection | 20.6832 |
 
 RFS prediction remained more challenging than pCR classification. The regression results suggest that relapse-free survival may depend on additional biological, treatment-related or follow-up factors that are not fully captured by pre-treatment clinical and radiomics features alone.
+
+## Technical Report
+
+A detailed IEEE-style technical report explaining the methodology, model comparison, results, limitations and future work is available here:
+
+[View Technical Report](docs/treatment-prediction.pdf)
 
 ## Project Structure
 
@@ -164,6 +161,9 @@ treatment-prediction/
 │
 ├── outputs/
 │   └── README.md
+│
+├── docs/
+│   └── treatment-prediction.pdf
 │
 ├── src/
 │   ├── explore_data.py
@@ -266,6 +266,8 @@ outputs/pcr_prediction.csv
 outputs/rfs_prediction.csv
 ```
 
+Generated prediction files are saved locally in `outputs/` and are not committed to GitHub.
+
 ## Data Availability
 
 The dataset files are not included in this repository because they may be subject to access restrictions.
@@ -307,6 +309,15 @@ py src/predict_rfs.py
 ```
 
 Avoid running individual files using the editor “Run” button if it changes the working directory to `src/`. Some scripts use paths such as `data/TrainDataset2025.xls`, which are relative to the project root. Running from the wrong directory may cause file path errors.
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Joblib
+- Git
 
 ## Skills Demonstrated
 
